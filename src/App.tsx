@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { fabric } from "fabric"; // this also installed on your project
 import { FabricJSCanvas, useFabricJSEditor } from "fabricjs-react";
 import "./App.css";
-import default_bg from './assets/defaultbg.avif';
-import { addImage, onAddCircle, onAddRectangle, onAddText, onBackgroundChange, onDeleteAll, onDeleteSelected, onFillObject } from "./components/fabricHooks";
+import { addImage, onAddCircle, onAddRectangle, onAddText, onDeleteAll, onDeleteSelected, onFillObject } from "./components/fabricHooks";
 
-import { BsCircle, BsChatLeftText, BsFillImageFill, BsGrid3X3GapFill, BsCreditCard2Front } from 'react-icons/bs'
+import { BsCircle, BsChatLeftText, BsFillImageFill } from 'react-icons/bs'
 import { BiRectangle } from 'react-icons/bi'
-import { TbRectangleFilled } from 'react-icons/tb'
 import { RxReset } from 'react-icons/rx'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 import { MdAdd, MdOutlineColorLens } from 'react-icons/md'
 import { GoDesktopDownload } from 'react-icons/go'
-import { FaSquare } from 'react-icons/fa'
 import { ColorPicker, useColor } from "react-color-palette";
 import { FcEditImage } from 'react-icons/fc'
 import "react-color-palette/lib/css/styles.css";
@@ -23,18 +20,14 @@ export default function App() {
   const [text, setText] = useState<any>("");
   const [showTextField, setShowTextField] = useState<boolean>(false)
   const [showUploadField, setShowUploadField] = useState<boolean>(false)
-  const [showBGField, setShowBGField] = useState<boolean>(false)
-
   const [showPallate, setShowPallate] = useState<boolean>(false)
 
 
   const [color, setColor] = useColor("hex", "#d946ef");
 
-  const { selectedObjects, editor, onReady } = useFabricJSEditor();
+  const { editor, onReady } = useFabricJSEditor();
 
   const _onReady = (canvas: any) => {
-    // setBackgroundImage(default_bg)
-
     fabric.Image.fromURL(backgroundImage, (img) => {
       console.log("editor canvas: ", canvas);
       console.log("editor image: ", img);
