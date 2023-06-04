@@ -15,7 +15,7 @@ import { FcEditImage } from 'react-icons/fc'
 import "react-color-palette/lib/css/styles.css";
 
 export default function App() {
-  const [backgroundImage, setBackgroundImage] = useState<any>(null);
+  const [backgroundImage] = useState<any>(null); // eslint-disable-line no-use-before-define
   const [objectImage, setObjectImage] = useState<any>(null);
   const [text, setText] = useState<any>("");
   const [showTextField, setShowTextField] = useState<boolean>(false)
